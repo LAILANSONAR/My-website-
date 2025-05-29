@@ -1,0 +1,108 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "toc_visible": true,
+      "authorship_tag": "ABX9TyOsP921sGkbuKFuUao70nnU",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/LAILANSONAR/My-website-/blob/main/mood%20prediction\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 4,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "BQMroMBnvsQJ",
+        "outputId": "11d13fd4-fa78-48a1-da35-a5a86e9d851a"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "its an banana\n"
+          ]
+        }
+      ],
+      "source": [
+        "# @title Default title text\n",
+        "from sklearn.tree import DecisionTreeClassifier\n",
+        "x = [\n",
+        "    [1,1,1],#apple\n",
+        "    [3,2,2],#banana\n",
+        "    [2,1,1],#apple\n",
+        "    [3,2,1],#banana\n",
+        "]\n",
+        "y = [0,1,0,1]\n",
+        "model = DecisionTreeClassifier()\n",
+        "model.fit(x,y)\n",
+        "mew_fruit = [[3,2,2]]\n",
+        "prediction = model.predict(mew_fruit)\n",
+        "if prediction[0]== 0:\n",
+        "  print(\"its an apple\")\n",
+        "else: print(\"its an banana\")"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from sklearn.tree import DecisionTreeClassifier\n",
+        "x = [\n",
+        "    [8,2,1],\n",
+        "    [5,7,0],\n",
+        "    [6,3,1],\n",
+        "    [4,8,0],\n",
+        "    [7,4,0],\n",
+        "    [6,5,1],\n",
+        "\n",
+        "]\n",
+        "y = [2,0,2,0,1,1]# 2 sleepy, 0 sad\n",
+        "model = DecisionTreeClassifier()\n",
+        "model.fit(x,y)\n",
+        "your_day = [[7,0,3]]\n",
+        "prediction = model.predict(your_day)\n",
+        "mods = {0: \"sad\",1:\"sad\",2:\"happy\"}\n",
+        "print(\"your mood is likely: \", mods[prediction[0]])\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "P7qmJzd-06Os",
+        "outputId": "ba7f1a3a-3d05-49a9-cc82-ffc09a75deb2"
+      },
+      "execution_count": 11,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "your mood is likely:  happy\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
